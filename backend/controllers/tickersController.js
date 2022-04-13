@@ -57,10 +57,22 @@ const getMarketValues = async (req, res) => {
     res.send(result)
 }
 
+const attach = (req, res) => {
+    const tickerId = req.body.tickerId
+    const exchage = req.body.exchage
+    const region = req.body.region
+    const companyName = req.body.companyName
+
+    tickerRepositoy.atach(tickerId,exchage,region,companyName).then(() => {
+        responseFactory(res).send()
+    })
+}
+
 module.exports = {
     search,
     getAll,
     getOne,
     remove,
-    getMarketValues
+    getMarketValues,
+    attach
 }
