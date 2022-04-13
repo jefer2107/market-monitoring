@@ -11,6 +11,19 @@ const search = (req, res) => {
 
 }
 
+const getAll = (req,res)=>{
+
+    tickerRepositoy.getAll().then((result) => {
+        responseFactory(res).send(result)
+
+    }).catch((error) => {
+        console.log(error)
+        responseFactory(res).error()
+
+    })
+}
+
 module.exports = {
-    search
+    search,
+    getAll
 }
