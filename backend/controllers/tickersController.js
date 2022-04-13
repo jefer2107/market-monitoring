@@ -37,8 +37,21 @@ const getOne = (req,res) => {
     })
 }
 
+const remove = (req,res) => {
+    const q = req.query.q
+    const region = req.query.region
+
+    tickerRepositoy.remove(q,region).then((result) => {
+        responseFactory(res).send(result)
+    }).catch((error) => {
+        console.log(error)
+        responseFactory(res).error()
+    })
+}
+
 module.exports = {
     search,
     getAll,
-    getOne
+    getOne,
+    remove
 }
