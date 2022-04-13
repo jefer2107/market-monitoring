@@ -23,7 +23,22 @@ const getAll = (req,res)=>{
     })
 }
 
+const getOne = (req,res) => {
+    const q = req.query.q
+    const region = req.query.region
+    
+
+    tickerRepositoy.getOne(q,region).then((result)=>{
+        responseFactory(res).send(result)
+
+    }).catch((error)=>{
+        console.log(error)
+        responseFactory(res).error()
+    })
+}
+
 module.exports = {
     search,
-    getAll
+    getAll,
+    getOne
 }
