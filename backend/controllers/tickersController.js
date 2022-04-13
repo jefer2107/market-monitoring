@@ -49,9 +49,18 @@ const remove = (req,res) => {
     })
 }
 
+const getMarketValues = async (req, res) => {
+
+    const tickersIds = await tickerRepositoy.getAllTickerIds()
+    const result = await externalMarketService.getMarketValues('US', tickersIds)
+
+    res.send(result)
+}
+
 module.exports = {
     search,
     getAll,
     getOne,
-    remove
+    remove,
+    getMarketValues
 }
