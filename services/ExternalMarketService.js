@@ -5,7 +5,7 @@ const getOptions = (url, method = 'GET') => ({
     url,
     headers: {
         'X-RapidAPI-Host': 'yh-finance.p.rapidapi.com',
-        'X-RapidAPI-Key': 'd31efacdf2msh38d7e8fff078f19p10b407jsnf99879bb4eba'
+        'X-RapidAPI-Key': '8296802852mshbfb2b4c9d0a0710p121946jsn920159b32e35'
     }
 })
 
